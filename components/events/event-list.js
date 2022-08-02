@@ -4,9 +4,16 @@ const EventList = (props) => {
   const { items } = props;
   return (
     <ul>
-      {items.map((item, index) => (
+      {items.map((event, index) => (
         <li key={index}>
-          <EventItem />
+          <EventItem
+            key={event.id}
+            id={event.id}
+            title={event.title}
+            location={event.location}
+            date={event.date}
+            image={event.image}
+          />
         </li>
       ))}
     </ul>
