@@ -1,4 +1,3 @@
-import Link from "next/link";
 import classes from "./event-item.module.css";
 import Button from "../ui/button";
 import DateIcon from "../icon/date-icon";
@@ -14,7 +13,7 @@ const EventItem = (props) => {
   });
 
   const formattedAddress = location.replace(", ", "\n");
-  const exploreLink = `/event/${id}`;
+  const exploreLink = `/events/${id}`;
   return (
     <li className={classes.item}>
       <img src={`/${image}`} alt={title} />
