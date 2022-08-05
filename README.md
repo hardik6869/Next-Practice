@@ -1,1 +1,1 @@
-# NextJS Practice
+## Page Pre-Rendering & Data Fetching
