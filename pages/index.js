@@ -1,6 +1,8 @@
+import fs from "fs/promises";
+import path from "path";
+
 export default function Home(props) {
   const { products } = props;
-  console.log(products);
   return (
     <ul>
       {products.map((product) => (
@@ -10,10 +12,14 @@ export default function Home(props) {
   );
 }
 
-export const getStaticProps = async () => {
+export async function getStaticProps() {
+  const filePath = path.join(process.cwd(), "data", "dummy-backend.json");
+  console.log(filePath);
+  const jsonData = await fs.readFile(filePath);
+  const data = JSON.parse(jsonData);
   return {
     props: {
-      products: [{ id: "p1", title: "Product 1" }],
+      products: data.products,
     },
   };
-};
+}
