@@ -24,7 +24,7 @@ export async function getStaticProps() {
   if (!data) {
     return {
       redirect: {
-        destination: "/node-data",
+        destination: "/no-data",
       },
     };
   }
