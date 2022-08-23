@@ -1,4 +1,4 @@
-const getAllEvents = async () => {
+export const getAllEvents = async () => {
   const response = await fetch(
     "https://event-app-56296-default-rtdb.firebaseio.com/events.json"
   );
@@ -7,7 +7,7 @@ const getAllEvents = async () => {
   const events = [];
 
   for (const key in data) {
-    return events.push({
+    events.push({
       id: key,
       ...data[key],
     });
@@ -15,7 +15,7 @@ const getAllEvents = async () => {
   return events;
 };
 
-const getFeaturedEvents = async () => {
+export const getFeaturedEvents = async () => {
   const allEvents = await getAllEvents();
-  return DUMMY_EVENTS.filter((event) => event.isFeatured);
+  return allEvents.filter((event) => event.isFeatured);
 };
