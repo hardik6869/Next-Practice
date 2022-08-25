@@ -20,7 +20,6 @@ export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "data", "dummy-backend.json");
   const jsonData = await fs.readFile(filePath);
   const data = JSON.parse(jsonData);
-
   if (!data) {
     return {
       redirect: {
@@ -28,7 +27,6 @@ export async function getStaticProps() {
       },
     };
   }
-
   if (data.products.length === 0) {
     return { notFound: true };
   }

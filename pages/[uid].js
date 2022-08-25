@@ -5,7 +5,6 @@ const UserIdPage = (props) => {
 };
 
 export default UserIdPage;
-
 export const getServerSideProps = (context) => {
   const { params } = context;
   const userId = params.uid;
