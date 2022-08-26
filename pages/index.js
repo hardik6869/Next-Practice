@@ -8,10 +8,18 @@ export default function Home() {
   const submitFormHandler = (event) => {
     event.preventDefault();
 
-    enteredEmail = emailInputRef.current.value;
-    enteredFeedback = feedbackInputRef.current.value;
-  };
+    const enteredEmail = emailInputRef.current.value;
+    const enteredFeedback = feedbackInputRef.current.value;
 
+    const requestBody = { email: enteredEmail, text: enteredFeedback };
+    fetch("/api/feedback", {
+      method: "POST",
+      body: JSON.stringify(requestBody),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
   return (
     <div>
       <Head>

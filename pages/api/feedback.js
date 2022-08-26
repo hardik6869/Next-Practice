@@ -1,12 +1,12 @@
 import fs from "fs";
 import path from "path";
 
-const handler = (req, res) => {
+function handler(req, res) {
   if (req.method === "POST") {
     const email = req.body.email;
     const feedbackText = req.body.text;
     const newFeedback = {
-      id: new Date().toISOString,
+      id: new Date().toISOString(),
       email: email,
       text: feedbackText,
     };
@@ -15,10 +15,10 @@ const handler = (req, res) => {
     const data = JSON.parse(fileData);
     data.push(newFeedback);
     fs.writeFileSync(filePath, JSON.stringify(data));
-    res.status(200).json({ message: "Success !", feedback: newFeedback });
+    res.status(201).json({ message: "Success !", feedback: newFeedback });
   } else {
-    res.status(200).json({ message: " " });
+    res.status(200).json({ message: "gfjhfj " });
   }
-};
+}
 
 export default handler;
